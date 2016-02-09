@@ -1,16 +1,16 @@
-  <md-sidenav md-is-locked-open="true" class="md-whiteframe-z2">
-<md-content>
-    <md-list>
-          <!-- List item #1 -->
-      <md-list-item ng-repeat="user in vm.users">
-        <md-button flex>
-          <div layout="row" layout-align="left center">
-            <img ng-src="{{user.image}}" class="md-avatar"></img>
-            {{user.name}}
-          </div>
-        </md-button>
-      </md-list-item>
+<md-sidenav md-is-locked-open="true" class="md-whiteframe-z2" layout-fill>
+  <md-content>
+      <md-list>
+            <!-- List item #1 -->
+        <md-list-item ng-repeat="user in vm.users">
+          <md-button flex>
+            <div layout="row" layout-align="left center">
+              <img ng-src="{{user.image}}" class="md-avatar"></img>
+              {{user.name}}
+            </div>
+          </md-button>
+        </md-list-item>
 
-    </md-list>
-</md-content>
-  </md-sidenav>
+      </md-list>
+  </md-content>
+</md-sidenav>

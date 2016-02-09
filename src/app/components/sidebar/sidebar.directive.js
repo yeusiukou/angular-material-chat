@@ -11,8 +11,7 @@
       restrict: 'E',
       templateUrl: 'app/components/sidebar/sidebar.html',
       controller: SidebarController,
-      controllerAs: 'vm',
-      bindToController: true
+      controllerAs: 'vm'
     };
 
     return directive;

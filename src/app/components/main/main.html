@@ -1,16 +1,13 @@
     <!-- Container #1 (see wireframe) -->
-  <md-toolbar layout="row" layout-align="left center">
+  <md-toolbar layout="row" layout-align="center center">
     <div layout-margin>
-      Angular Material - Starter App
+      MyChat
     </div>
   </md-toolbar>
 
   <!-- Container #2 -->
   <div flex layout="row">
-
-    <!-- Container #3 -->
-    <by-sidebar layout="column" flex="25" style="min-width: 250px;"><by-sidebar/>
-    <!-- Container #4 -->
-    <md-content layout="column" flex id="content"></md-content>
-
+	  <!-- Sidebar -->
+	  <by-chat layout="column" flex></by-chat>
+	  <by-sidebar layout="column"><by-sidebar/>
   </div>
