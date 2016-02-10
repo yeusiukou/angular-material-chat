@@ -1,17 +1,25 @@
-<md-content style="background-color: #DCDCDC;">
-  <md-list>
-    <md-list-item ng-repeat="message in chat.messages" layout-margin>
-	    <div layout="column" layout-align="center center" class="md-caption">
-	      <img layout="row" style="margin: 0;" ng-src="{{message.avatar}}" class="md-avatar"></img>
-	      <div style="text-align: center; color: #5F5F5F;">
-		      {{message.name}}
+<div layout="row" flex>
+	<md-content style="background-color: #DCDCDC;" id="chat-content">
+	  <md-list>
+	    <md-list-item ng-repeat="message in chat.messages" layout-margin>
+		    <div flex-order="{{message.user ? 2 : 0}}" layout="column" layout-align="center center" class="md-caption">
+		      <img layout="row" style="margin: 0;" ng-src="{{message.avatar}}" class="md-avatar"></img>
+		      <div style="text-align: center; color: #5F5F5F;">
+			      {{message.name}}
+		      </div>
+		    </div>
+	      <div flex-order = "1"
+		      style="background-color: white; padding: 10px; border-radius: 5px;" 
+		      layout-fill>
+	      	{{message.text}}
 	      </div>
-	    </div>
-      <div layout-fill 
-	      style="background-color: white; padding: 10px; border-radius: 5px;" 
-	      layout-fill>
-      	{{message.text}}
-      </div>
-    </md-list-item>
-  </md-list>
-</md-content>
+	    </md-list-item>
+	  </md-list>
+	</md-content>
+</div>
+<form layout="row" style="margin-bottom: 20px; padding: 20px;" ng-submit="chat.sendMessage()">
+	<md-input-container flex layout-align="center" layout-fill>
+	  <label>What do you want to say?</label>
+	  <input type="text" ng-model="chat.myMessage"></input>
+	</md-input-container>
+</form>

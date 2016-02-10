@@ -11,7 +11,8 @@
       restrict: 'E',
       templateUrl: 'app/components/chat/chat.html',
       controller: ChatController,
-      controllerAs: 'chat'
+      controllerAs: 'chat',
+      link: scrollOnNew
     };
 
     return directive;
@@ -23,7 +24,22 @@
       chat.messages = [];
       chat.avatar = faker.image.avatar();
       chat.name = faker.name.findName();
+      chat.user = {
+        name: faker.name.findName(),
+        avatar: faker.image.avatar()
+      };
+      chat.sendMessage = sendMessage;
       getMessages();
+
+      function sendMessage(){
+        chat.messages.push({
+          user: true,
+          text: chat.myMessage,
+          name: chat.user.name,
+          avatar: chat.user.avatar
+        });
+        chat.myMessage = "";
+      }
 
       function getMessages(){
         for(var i=0; i<15; i++)
@@ -33,6 +49,14 @@
             avatar: chat.avatar
           });
       }
+
+    }
+    function scrollOnNew(scope, element){
+      scope.$watchCollection('chat.messages', function() {
+        var $list = $(element).find('#chat-content');
+        var scrollHeight = $list.prop('scrollHeight');
+        $list.animate({scrollTop: scrollHeight}, 500);
+      });
     }
   }
 
