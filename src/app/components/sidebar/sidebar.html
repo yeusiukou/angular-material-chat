@@ -3,7 +3,7 @@
       <md-list>
             <!-- List item #1 -->
         <md-list-item ng-repeat="user in vm.users">
-          <md-button flex>
+          <md-button flex ng-click="vm.openChat(user)">
             <div layout="row" layout-align="left center">
               <img ng-src="{{user.image}}" class="md-avatar"></img>
               {{user.name}}

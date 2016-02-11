@@ -17,18 +17,24 @@
     return directive;
 
     /** @ngInject */
-    function SidebarController(moment) {
+    function SidebarController($scope) {
       var vm = this;
 
       vm.users = [];
+      vm.openChat = openChat;
       getUsers();
 
       function getUsers(){
         for(var i=0; i<15; i++)
           vm.users.push({
+            id: i,
             name: faker.name.findName(),
             image: faker.image.avatar()
           });
+      }
+
+      function openChat(user){
+        $scope.$emit("OPEN_CHAT", user);
       }
     }
   }

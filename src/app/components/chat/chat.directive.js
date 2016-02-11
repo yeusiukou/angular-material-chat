@@ -18,7 +18,7 @@
     return directive;
 
     /** @ngInject */
-    function ChatController(moment) {
+    function ChatController($scope) {
       var chat = this;
 
       chat.messages = [];
@@ -29,7 +29,11 @@
         avatar: faker.image.avatar()
       };
       chat.sendMessage = sendMessage;
-      getMessages();
+
+      $scope.$on("OPEN_CHAT", function(event, user){
+        chat.messages = [];
+        getMessages(user);
+      });
 
       function sendMessage(){
         chat.messages.push({
@@ -41,12 +45,12 @@
         chat.myMessage = "";
       }
 
-      function getMessages(){
-        for(var i=0; i<15; i++)
+      function getMessages(user){
+        for(var i=0; i<5; i++)
           chat.messages.push({
             text: faker.lorem.paragraph(),
-            name: chat.name,
-            avatar: chat.avatar
+            name: user.name,
+            avatar: user.image
           });
       }
 

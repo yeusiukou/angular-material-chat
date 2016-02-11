@@ -15,36 +15,14 @@
 
     return directive;
 
-  function MainController($timeout, webDevTec, toastr, $mdToast) {
+  function MainController($scope) {
     var vm = this;
 
-    vm.awesomeThings = [];
-    vm.classAnimation = '';
-    vm.creationDate = 1454691257479;
-    vm.showToastr = showToastr;
+    // this.openChat = openChat;
 
-    activate();
-
-    function activate() {
-      getWebDevTec();
-      $timeout(function() {
-        vm.classAnimation = 'rubberBand';
-      }, 4000);
-    }
-
-    function showToastr() {
-      $mdToast.show($mdToast.simple().textContent('Hello!'));
-      // Could also do $mdToast.showSimple('Hello');
-      // logger.info("Hello");
-    }
-
-    function getWebDevTec() {
-      vm.awesomeThings = webDevTec.getTec();
-
-      angular.forEach(vm.awesomeThings, function(awesomeThing) {
-        awesomeThing.rank = Math.random();
-      });
-    }
+    // function openChat(user){
+    //   $scope.$broadcast("OPEN_CHAT", user);
+    // }
   }
   }
 
