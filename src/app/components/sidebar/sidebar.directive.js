@@ -17,12 +17,13 @@
     return directive;
 
     /** @ngInject */
-    function SidebarController($scope) {
+    function SidebarController($rootScope) {
       var vm = this;
 
       vm.users = [];
       vm.openChat = openChat;
       getUsers();
+      openChat(vm.users[0]);
 
       function getUsers(){
         for(var i=0; i<15; i++)
@@ -34,7 +35,7 @@
       }
 
       function openChat(user){
-        $scope.$emit("OPEN_CHAT", user);
+        $rootScope.$emit("OPEN_CHAT", user);
       }
     }
   }

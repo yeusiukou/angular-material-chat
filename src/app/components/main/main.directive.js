@@ -10,19 +10,18 @@
       restrict: 'E',
       templateUrl: 'app/components/main/main.html',
       controller: MainController,
-      controllerAs: 'vm'
+      controllerAs: 'main'
     };
 
     return directive;
 
   function MainController($scope) {
-    var vm = this;
+    var main = this;
 
-    // this.openChat = openChat;
-
-    // function openChat(user){
-    //   $scope.$broadcast("OPEN_CHAT", user);
-    // }
+    main.user = {
+      name: faker.name.findName(),
+      avatar: faker.image.avatar()
+    };
   }
   }
 

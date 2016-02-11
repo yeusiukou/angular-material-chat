@@ -18,19 +18,14 @@
     return directive;
 
     /** @ngInject */
-    function ChatController($scope) {
+    function ChatController($rootScope, $scope) {
       var chat = this;
-
       chat.messages = [];
-      chat.avatar = faker.image.avatar();
-      chat.name = faker.name.findName();
-      chat.user = {
-        name: faker.name.findName(),
-        avatar: faker.image.avatar()
-      };
       chat.sendMessage = sendMessage;
 
-      $scope.$on("OPEN_CHAT", function(event, user){
+      var user = $scope.main.user;
+
+      $rootScope.$on("OPEN_CHAT", function(event, user){
         chat.messages = [];
         getMessages(user);
       });
@@ -39,8 +34,8 @@
         chat.messages.push({
           user: true,
           text: chat.myMessage,
-          name: chat.user.name,
-          avatar: chat.user.avatar
+          name: user.name,
+          avatar: user.avatar
         });
         chat.myMessage = "";
       }

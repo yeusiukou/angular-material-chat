@@ -1,7 +1,11 @@
     <!-- Container #1 (see wireframe) -->
-  <md-toolbar layout="row" layout-align="center center">
-    <div layout-margin>
+  <md-toolbar layout="row">
+    <div layout="row" flex layout-margin layout-align="center center">
       MyChat
+    </div>
+    <div layout="row" layout-margin layout-align="right center" style="float: right;">
+      {{main.user.name}}
+      <img ng-src="{{main.user.avatar}}" class="md-avatar" style="height: 40px; width: auto;"></img>
     </div>
   </md-toolbar>
 
