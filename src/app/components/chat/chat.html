@@ -3,7 +3,7 @@
 	  <md-list>
 	    <md-list-item ng-repeat="message in chat.messages" style="margin-top: 8px; margin-bottom: 8px;">
 		    <div flex-order="{{message.user ? 2 : 0}}" layout="column" layout-align="center center" class="md-caption">
-		      <img layout="row" style="margin: 0;" ng-src="{{message.avatar}}" class="md-avatar"></img>
+		      <img layout="row" style="margin-right: 3px;" ng-src="{{message.avatar}}" class="md-avatar"></img>
 		      <div style="text-align: center; color: #5F5F5F;">
 			      {{message.name}}
 		      </div>

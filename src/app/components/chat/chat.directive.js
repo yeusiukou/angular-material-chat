@@ -41,7 +41,8 @@
       }
 
       function getMessages(user){
-        for(var i=0; i<5; i++)
+        var amount = Math.random()*9;
+        for(var i=0; i<amount; i++)
           chat.messages.push({
             text: faker.lorem.paragraph(),
             name: user.name,
