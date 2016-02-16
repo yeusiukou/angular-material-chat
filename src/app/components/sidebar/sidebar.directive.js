@@ -11,17 +11,21 @@
       restrict: 'E',
       templateUrl: 'app/components/sidebar/sidebar.html',
       controller: SidebarController,
-      controllerAs: 'vm'
+      controllerAs: 'vm',
+      scope: {
+        show: '='
+      }
     };
 
     return directive;
 
     /** @ngInject */
-    function SidebarController($rootScope) {
+    function SidebarController($rootScope, $scope) {
       var vm = this;
 
       vm.users = [];
       vm.openChat = openChat;
+      vm.show = true;
       getUsers();
       openChat(vm.users[0]);
 
@@ -37,6 +41,11 @@
       function openChat(user){
         $rootScope.$emit("OPEN_CHAT", user);
       }
+
+      $scope.$watch("show",function(newValue,oldValue) {
+        vm.show = newValue;
+        console.log(newValue);
+      });
     }
   }
 

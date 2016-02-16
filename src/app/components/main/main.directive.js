@@ -15,8 +15,14 @@
 
     return directive;
 
-  function MainController($scope) {
+  function MainController($scope, $mdMedia) {
     var main = this;
+    main.showSidebar = $mdMedia("gt-md");
+    main.toggleSidebar = toggleSidebar;
+
+    function toggleSidebar(){
+      main.showSidebar = !main.showSidebar;
+    }
 
     main.user = {
       name: faker.name.findName(),

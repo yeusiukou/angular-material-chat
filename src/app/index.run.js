@@ -6,7 +6,7 @@
     .run(runBlock);
 
   /** @ngInject */
-  function runBlock($log) {
+  function runBlock($log, $mdMedia) {
 
     $log.debug('runBlock end');
   }

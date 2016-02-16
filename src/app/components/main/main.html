@@ -1,5 +1,16 @@
     <!-- Container #1 (see wireframe) -->
   <md-toolbar layout="row">
+
+    <div layout="row" layout-align="left center">
+      <md-button class="md-icon-button" ng-click="main.toggleSidebar();">
+
+        <md-icon md-font-icon="material-icons">
+          view_headline
+        </md-icon>
+        
+      </md-button>
+    </div>
+
     <div layout="row" flex layout-margin layout-align="center center">
       MyChat
     </div>
@@ -13,5 +24,5 @@
   <div flex layout="row">
 	  <!-- Sidebar -->
 	  <by-chat layout="column" flex></by-chat>
-	  <by-sidebar layout="column"><by-sidebar/>
+	  <by-sidebar layout="column" show="main.showSidebar"><by-sidebar/>
   </div>
