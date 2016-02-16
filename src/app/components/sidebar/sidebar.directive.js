@@ -20,12 +20,13 @@
     return directive;
 
     /** @ngInject */
-    function SidebarController($rootScope, $scope) {
+    function SidebarController($rootScope, $scope, mobileDetector) {
       var vm = this;
 
       vm.users = [];
       vm.openChat = openChat;
       vm.show = true;
+      vm.isMobile = mobileDetector.detect();
       getUsers();
       openChat(vm.users[0]);
 

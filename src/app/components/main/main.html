@@ -1,7 +1,7 @@
     <!-- Toolbar -->
   <md-toolbar layout="row">
 
-    <div layout="row" flex layout-align="left center" ng-show="!$mdMedia('gt-xs')">
+    <div layout="row" flex layout-align="left center" ng-show="!$mdMedia('gt-xs') || main.isMobile">
       <md-button class="md-icon-button" ng-click="main.toggleSidebar();">
 
         <md-icon md-font-icon="material-icons">

@@ -17,10 +17,11 @@
     return directive;
 
   /** @ngInject */
-  function MainController($scope, $mdMedia, $mdSidenav) {
+  function MainController($scope, $mdMedia, $mdSidenav, mobileDetector) {
     var main = this;
     $scope.$mdMedia = $mdMedia;
     main.toggleSidebar = toggleSidebar;
+    main.isMobile = mobileDetector.detect();
 
     function toggleSidebar(){
       $mdSidenav('sidebar').toggle();
