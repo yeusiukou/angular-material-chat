@@ -18,16 +18,18 @@
     return directive;
 
     /** @ngInject */
-    function ChatController($rootScope, $scope) {
+    function ChatController($rootScope, $scope, $timeout) {
       var chat = this;
       chat.messages = [];
       chat.sendMessage = sendMessage;
 
       var user = $scope.main.user;
+      var interlocutor;
 
       $rootScope.$on("OPEN_CHAT", function(event, user){
         chat.messages = [];
-        getMessages(user);
+        interlocutor = user;
+        getMessages();
       });
 
       function sendMessage(){
@@ -38,17 +40,26 @@
           avatar: user.avatar
         });
         chat.myMessage = "";
+
+        // fake reply
+        $timeout(function(){
+          pushFakeMessage();
+        }, 1000);
       }
 
-      function getMessages(user){
+      function getMessages(){
         var amount = Math.random()*9;
         for(var i=0; i<amount; i++)
-          chat.messages.push({
-            text: faker.lorem.paragraph(),
-            name: user.name,
-            avatar: user.image
-          });
+          pushFakeMessage();
         scrollDown();
+      }
+
+      function pushFakeMessage(){
+        chat.messages.push( {
+          text: faker.lorem.paragraph(),
+          name: interlocutor.name,
+          avatar: interlocutor.image
+        } );
       }
 
     }
