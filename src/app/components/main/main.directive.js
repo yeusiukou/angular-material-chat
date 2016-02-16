@@ -15,13 +15,13 @@
 
     return directive;
 
-  function MainController($scope, $mdMedia) {
+  function MainController($scope, $mdMedia, $mdSidenav) {
     var main = this;
-    main.showSidebar = $mdMedia("gt-md");
+    $scope.$mdMedia = $mdMedia;
     main.toggleSidebar = toggleSidebar;
 
     function toggleSidebar(){
-      main.showSidebar = !main.showSidebar;
+      $mdSidenav('sidebar').toggle();
     }
 
     main.user = {

@@ -1,7 +1,7 @@
 <div layout="row" flex>
 	<md-content style="background-color: #DCDCDC;" id="chat-content">
 	  <md-list>
-	    <md-list-item ng-repeat="message in chat.messages" layout-margin>
+	    <md-list-item ng-repeat="message in chat.messages" style="margin-top: 8px; margin-bottom: 8px;">
 		    <div flex-order="{{message.user ? 2 : 0}}" layout="column" layout-align="center center" class="md-caption">
 		      <img layout="row" style="margin: 0;" ng-src="{{message.avatar}}" class="md-avatar"></img>
 		      <div style="text-align: center; color: #5F5F5F;">
@@ -17,7 +17,7 @@
 	  </md-list>
 	</md-content>
 </div>
-<form layout="row" style="padding: 20px;" ng-submit="chat.sendMessage()">
+<form layout="row" style="padding: 20px;" ng-submit="chat.sendMessage()" autocomplete="off">
 	<md-input-container flex layout-align="center" layout-fill>
 	  <label>What do you want to say?</label>
 	  <input type="text" ng-model="chat.myMessage"></input>

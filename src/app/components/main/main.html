@@ -1,7 +1,7 @@
     <!-- Container #1 (see wireframe) -->
   <md-toolbar layout="row">
 
-    <div layout="row" layout-align="left center">
+    <div layout="row" layout-align="left center" ng-show="!$mdMedia('gt-xs')">
       <md-button class="md-icon-button" ng-click="main.toggleSidebar();">
 
         <md-icon md-font-icon="material-icons">
@@ -23,6 +23,6 @@
   <!-- Container #2 -->
   <div flex layout="row">
 	  <!-- Sidebar -->
-	  <by-chat layout="column" flex></by-chat>
-	  <by-sidebar layout="column" show="main.showSidebar"><by-sidebar/>
+    <by-chat layout="column" flex></by-chat>
+	  <by-sidebar layout="column"><by-sidebar/>
   </div>

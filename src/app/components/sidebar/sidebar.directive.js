@@ -20,7 +20,7 @@
     return directive;
 
     /** @ngInject */
-    function SidebarController($rootScope, $scope) {
+    function SidebarController($rootScope, $scope, $mdSidenav) {
       var vm = this;
 
       vm.users = [];
@@ -41,11 +41,6 @@
       function openChat(user){
         $rootScope.$emit("OPEN_CHAT", user);
       }
-
-      $scope.$watch("show",function(newValue,oldValue) {
-        vm.show = newValue;
-        console.log(newValue);
-      });
     }
   }
 
