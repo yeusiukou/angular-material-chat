@@ -48,15 +48,19 @@
             name: user.name,
             avatar: user.image
           });
+        scrollDown();
       }
 
     }
     function scrollOnNew(scope, element){
       scope.$watchCollection('chat.messages', function() {
-        var $list = $(element).find('#chat-content');
-        var scrollHeight = $list.prop('scrollHeight');
-        $list.animate({scrollTop: scrollHeight}, 500);
+        scrollDown();
       });
+    }
+    function scrollDown(){
+      var list = angular.element( document.querySelector( '#chat-content' ) );
+      var scrollHeight = list.prop('scrollHeight');
+      list.animate({scrollTop: scrollHeight}, 500);
     }
   }
 

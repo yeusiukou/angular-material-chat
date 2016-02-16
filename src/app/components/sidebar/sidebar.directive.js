@@ -20,7 +20,7 @@
     return directive;
 
     /** @ngInject */
-    function SidebarController($rootScope, $scope, $mdSidenav) {
+    function SidebarController($rootScope, $scope) {
       var vm = this;
 
       vm.users = [];

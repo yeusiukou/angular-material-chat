@@ -5,6 +5,7 @@
     .module('tube2srt')
     .directive('byMain', byMain);
 
+  /** @ngInject */
   function byMain(){
     var directive = {
       restrict: 'E',
@@ -15,6 +16,7 @@
 
     return directive;
 
+  /** @ngInject */
   function MainController($scope, $mdMedia, $mdSidenav) {
     var main = this;
     $scope.$mdMedia = $mdMedia;
