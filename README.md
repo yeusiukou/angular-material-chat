@@ -22,7 +22,7 @@ Material Chat uses a number of open source projects to work properly:
 License
 ----
 
-MIT
+MIT - [xRoker](https://github.com/xroker)
 
 
 **Happy coding!**
