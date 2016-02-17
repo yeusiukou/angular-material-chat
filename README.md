@@ -5,9 +5,9 @@ A chat mockup built with AngularJS, Angular Material and Faker
   - Ready to be connected to any backend
   - Fully responsive
 
-You can try it [here](chat-material.surge.sh)
+You can try it [here](http://chat-material.surge.sh)
 
-![logo][screenshot]
+<img src="https://cloud.githubusercontent.com/assets/8567013/13105060/14ad60ae-d572-11e5-8e0a-519a4b8183c8.png" width="480">
 
 ### Tech
 
@@ -31,4 +31,3 @@ MIT
    [Angular Material]: <http://material.angularjs.org>
    [Faker]: <https://github.com/stympy/faker>
    [Gulp]: <http://gulpjs.com>
-   [screenshot]: <https://cloud.githubusercontent.com/assets/8567013/13105060/14ad60ae-d572-11e5-8e0a-519a4b8183c8.png>
